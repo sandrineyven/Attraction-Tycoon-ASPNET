@@ -4,14 +4,16 @@ using Attraction_Tycoon_ASPNET.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Attraction_Tycoon_ASPNET.Migrations
 {
     [DbContext(typeof(Attraction_Tycoon_ASPNETContext))]
-    partial class Attraction_Tycoon_ASPNETContextModelSnapshot : ModelSnapshot
+    [Migration("20190329161858_Initial2")]
+    partial class Initial2
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
