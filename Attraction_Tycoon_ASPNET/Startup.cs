@@ -9,6 +9,8 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.EntityFrameworkCore;
+using Attraction_Tycoon_ASPNET.Models;
 
 namespace Attraction_Tycoon_ASPNET
 {
@@ -33,6 +35,9 @@ namespace Attraction_Tycoon_ASPNET
 
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+
+            services.AddDbContext<Attraction_Tycoon_ASPNETContext>(options =>
+                    options.UseSqlServer(Configuration.GetConnectionString("Attraction_Tycoon_ASPNETContext")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
