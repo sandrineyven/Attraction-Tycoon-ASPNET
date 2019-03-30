@@ -18,6 +18,6 @@ namespace Attraction_Tycoon_ASPNET.Models
 
         //public List<Shop> shopList { get; set; }
 
-       // public List<Carousel> carouselList { get; set; }
+       //public List<Carousel> carouselList { get; set; }
     }
 }

@@ -19,9 +19,17 @@ namespace Attraction_Tycoon_ASPNET.Controllers
         }
 
         // GET: Shops
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string searchString)
         {
-            return View(await _context.Shop.ToListAsync());
+            var shops = from s in _context.Shop
+                         select s;
+
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                shops = shops.Where(s => s.name.Contains(searchString));
+            }
+
+            return View(await shops.ToListAsync());
         }
 
         // GET: Shops/Details/5

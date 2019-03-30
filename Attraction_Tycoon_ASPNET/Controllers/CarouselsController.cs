@@ -19,9 +19,17 @@ namespace Attraction_Tycoon_ASPNET.Controllers
         }
 
         // GET: Carousels
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string searchString)
         {
-            return View(await _context.Carousel.ToListAsync());
+            var carousels = from c in _context.Carousel
+                        select c;
+
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                carousels = carousels.Where(c => c.name.Contains(searchString));
+            }
+
+            return View(await carousels.ToListAsync());
         }
 
         // GET: Carousels/Details/5

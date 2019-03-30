@@ -21,7 +21,7 @@ namespace Attraction_Tycoon_ASPNET.Models
 
         [Required]
         [Display(Name = "zone")]
-        public Zone zone { get; set; }
+        public int zone { get; set; }
 
         public List<Staff> staffs { get; set; }
 }
