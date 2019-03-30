@@ -60,7 +60,7 @@ namespace Attraction_Tycoon_ASPNET.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("id,login")] User user)
+        public async Task<IActionResult> Create([Bind("id,login,password,email")] User user)
         {
             if (ModelState.IsValid)
             {
