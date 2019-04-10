@@ -11,6 +11,9 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.EntityFrameworkCore;
 using Attraction_Tycoon_ASPNET.Models;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.UI;
+using Microsoft.AspNetCore.Identity.UI.Services;
 
 namespace Attraction_Tycoon_ASPNET
 {
@@ -35,20 +38,14 @@ namespace Attraction_Tycoon_ASPNET
 
             services.AddDistributedMemoryCache();
 
-            services.AddSession(options =>
-            {
-                // Set a short timeout for easy testing.
-                options.IdleTimeout = TimeSpan.FromSeconds(30);
-                options.Cookie.HttpOnly = true;
-                // Make the session cookie essential
-                options.Cookie.IsEssential = true;
-            });
+
+            services.AddDbContext<Attraction_Tycoon_ASPNETContext>(options =>
+                    options.UseSqlServer(Configuration.GetConnectionString("Attraction_Tycoon_ASPNETContext")));
 
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
 
-            services.AddDbContext<Attraction_Tycoon_ASPNETContext>(options =>
-                    options.UseSqlServer(Configuration.GetConnectionString("Attraction_Tycoon_ASPNETContext")));
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -68,9 +65,7 @@ namespace Attraction_Tycoon_ASPNET
             app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseCookiePolicy();
-            app.UseSession();
             app.UseAuthentication();
-
             app.UseMvc(routes =>
             {
                 routes.MapRoute(

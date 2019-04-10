@@ -15,7 +15,7 @@ namespace Attraction_Tycoon_ASPNET.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "2.2.0-rtm-35687")
+                .HasAnnotation("ProductVersion", "2.2.3-servicing-35854")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
@@ -60,11 +60,9 @@ namespace Attraction_Tycoon_ASPNET.Migrations
                     b.Property<string>("type")
                         .IsRequired();
 
-                    b.Property<int>("zoneid");
+                    b.Property<int>("zone");
 
                     b.HasKey("id");
-
-                    b.HasIndex("zoneid");
 
                     b.ToTable("Shop");
                 });
@@ -98,6 +96,24 @@ namespace Attraction_Tycoon_ASPNET.Migrations
                     b.ToTable("Staff");
                 });
 
+            modelBuilder.Entity("Attraction_Tycoon_ASPNET.Models.User", b =>
+                {
+                    b.Property<int>("id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("email");
+
+                    b.Property<string>("login")
+                        .IsRequired();
+
+                    b.Property<string>("password");
+
+                    b.HasKey("id");
+
+                    b.ToTable("User");
+                });
+
             modelBuilder.Entity("Attraction_Tycoon_ASPNET.Models.Zone", b =>
                 {
                     b.Property<int>("id")
@@ -110,14 +126,6 @@ namespace Attraction_Tycoon_ASPNET.Migrations
                     b.HasKey("id");
 
                     b.ToTable("Zone");
-                });
-
-            modelBuilder.Entity("Attraction_Tycoon_ASPNET.Models.Shop", b =>
-                {
-                    b.HasOne("Attraction_Tycoon_ASPNET.Models.Zone", "zone")
-                        .WithMany()
-                        .HasForeignKey("zoneid")
-                        .OnDelete(DeleteBehavior.Cascade);
                 });
 
             modelBuilder.Entity("Attraction_Tycoon_ASPNET.Models.Staff", b =>

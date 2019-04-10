@@ -21,7 +21,6 @@ namespace Attraction_Tycoon_ASPNET.Models
         public DbSet<Attraction_Tycoon_ASPNET.Models.Shop> Shop { get; set; }
 
         public DbSet<Attraction_Tycoon_ASPNET.Models.Zone> Zone { get; set; }
-
-        public DbSet<Attraction_Tycoon_ASPNET.Models.User> User { get; set; }
+       
     }
 }
