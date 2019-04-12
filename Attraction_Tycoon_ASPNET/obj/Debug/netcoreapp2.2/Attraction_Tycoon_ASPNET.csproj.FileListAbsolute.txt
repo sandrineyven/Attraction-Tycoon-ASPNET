@@ -101,3 +101,5 @@ C:\Users\Sandrine\workspace\git\Attraction-Tycoon-ASPNET\Attraction_Tycoon_ASPNE
 C:\Users\Sandrine\workspace\git\Attraction-Tycoon-ASPNET\Attraction_Tycoon_ASPNET\obj\Debug\netcoreapp2.2\Razor\Views\Shared\_LoginPartial.g.cshtml.cs
 C:\Users\Sandrine\workspace\git\Attraction-Tycoon-ASPNET\Attraction_Tycoon_ASPNET\obj\Debug\netcoreapp2.2\Razor\Areas\Identity\Pages\_ValidationScriptsPartial.g.cshtml.cs
 C:\Users\Sandrine\workspace\git\Attraction-Tycoon-ASPNET\Attraction_Tycoon_ASPNET\obj\Debug\netcoreapp2.2\Razor\Areas\Identity\Pages\_ViewStart.g.cshtml.cs
+C:\Users\Sandrine\workspace\git\Attraction-Tycoon-ASPNET\Attraction_Tycoon_ASPNET\obj\Debug\netcoreapp2.2\Razor\Views\Searches\Details.g.cshtml.cs
+C:\Users\Sandrine\workspace\git\Attraction-Tycoon-ASPNET\Attraction_Tycoon_ASPNET\obj\Debug\netcoreapp2.2\Razor\Views\Searches\Index.g.cshtml.cs

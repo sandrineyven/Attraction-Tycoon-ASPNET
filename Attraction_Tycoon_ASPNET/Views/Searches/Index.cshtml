@@ -1,0 +1,25 @@
+﻿@model IEnumerable<Attraction_Tycoon_ASPNET.Models.Search>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Recherche avancée</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                <a asp-action="Details" asp-route-id="@item.id">Details</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
