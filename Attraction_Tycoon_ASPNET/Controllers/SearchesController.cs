@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Attraction_Tycoon_ASPNET.Models;
+using System.Data.Entity.Infrastructure;
 
 namespace Attraction_Tycoon_ASPNET.Controllers
 {
@@ -19,27 +20,35 @@ namespace Attraction_Tycoon_ASPNET.Controllers
         }
 
         // GET: Searches
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string searchString)
         {
-            return View(await _context.Search.ToListAsync());
-        }
 
-        // GET: Searches/Details/5
-        public async Task<IActionResult> Details(int? id)
-        {
-            if (id == null)
+             var shops = from s in _context.Shop
+                        select s;
+            var car = from c in _context.Carousel
+                        select c;
+            var staffs = from s in _context.Staff
+                        select s;
+
+
+            if (!String.IsNullOrEmpty(searchString))
             {
-                return NotFound();
+                car = car.Where(c => c.name.Contains(searchString));
+                shops = shops.Where(c => c.name.Contains(searchString));
+                staffs = staffs.Where(c => c.name.Contains(searchString));
             }
 
-            var search = await _context.Search
-                .FirstOrDefaultAsync(m => m.id == id);
-            if (search == null)
+            var vm = new Search
             {
-                return NotFound();
-            }
-
-            return View(search);
+                carousels = await car.ToListAsync(),
+                shops = await shops.ToListAsync(),
+                staffs = await staffs.ToListAsync()
+            };
+            
+            
+            return View(vm);
         }
+
     }
+
 }

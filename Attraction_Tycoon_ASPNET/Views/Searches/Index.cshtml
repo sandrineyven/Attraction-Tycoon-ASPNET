@@ -1,4 +1,4 @@
-﻿@model IEnumerable<Attraction_Tycoon_ASPNET.Models.Search>
+﻿@model Search
 
 @{
     ViewData["Title"] = "Index";
@@ -6,20 +6,100 @@
 }
 
 <h1>Recherche avancée</h1>
+<form asp-controller="Searches" asp-action="Index" method="get">
+    <p>
+        Recherche: <input type="text" name="SearchString">
+        <input type="submit" value="Filter" />
+    </p>
+</form>
+    <h2>Carousels</h2>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Nom</th>
+                <th>Type</th>
+                <th>Zone</th>
+                <th></th>
+            </tr>
 
-<table class="table">
-    <thead>
-        <tr>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                <a asp-action="Details" asp-route-id="@item.id">Details</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.carousels)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.type)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.zone)
+                    </td>
+                    <td>
+                        <a asp-controller="Carousels" asp-action="Details" asp-route-id="@item.id">Details</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    <h2>Shops</h2>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Nom</th>
+                <th>Type</th>
+                <th>Zone</th>
+                <th></th>
+            </tr>
+
+        </thead>
+        <tbody>
+            @foreach (var item in Model.shops)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.type)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.zone)
+                    </td>
+                    <td>
+                        <a asp-controller="Shops" asp-action="Details" asp-route-id="@item.id">Details</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    <h2>Staff</h2>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Nom</th>
+                <th>Type</th>
+                <th></th>
+            </tr>
+
+        </thead>
+        <tbody>
+            @foreach (var item in Model.staffs)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.type)
+                    </td>
+                    <td>
+                        <a asp-controller="Staffs" asp-action="Details" asp-route-id="@item.id">Details</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
