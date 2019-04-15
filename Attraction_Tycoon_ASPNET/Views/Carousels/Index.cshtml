@@ -70,7 +70,7 @@
                 @Html.DisplayFor(modelItem => item.capacity)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.zone)
+                <a asp-controller="Zones" asp-action="Details" asp-route-id="@item.zone">@Html.DisplayFor(modelItem => item.zoneName) </a>
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.id">Edit</a> |

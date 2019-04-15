@@ -24,7 +24,14 @@
             </div>
             <div class="form-group">
                 <label asp-for="zone" class="control-label"></label>
-                <input asp-for="zone" class="form-control" />
+                @Html.DropDownList("zone", new List<SelectListItem>
+                {
+                   new SelectListItem{ Text="Nord", Value = "1" },
+                   new SelectListItem{ Text="Sud", Value = "2" },
+                   new SelectListItem{ Text="Ouest", Value = "3" },
+                   new SelectListItem{ Text="Est", Value = "4" },
+                   new SelectListItem{ Text="Centre", Value = "5" },
+                })
                 <span asp-validation-for="zone" class="text-danger"></span>
             </div>
             <div class="form-group">

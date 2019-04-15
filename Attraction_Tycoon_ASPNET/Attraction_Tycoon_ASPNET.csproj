@@ -8,6 +8,10 @@
     <StartupObject />
   </PropertyGroup>
 
+  <ItemGroup>
+    <None Include="wwwroot\image\map.jpg" />
+  </ItemGroup>
+
 
   <ItemGroup>
     <PackageReference Include="EntityFramework" Version="6.2.0" />

@@ -33,5 +33,7 @@ namespace Attraction_Tycoon_ASPNET.Models
         [Display(Name = "zone")]
         public int zone { get; set; }
 
+        public String zoneName { get; set; }
+
     }
 }

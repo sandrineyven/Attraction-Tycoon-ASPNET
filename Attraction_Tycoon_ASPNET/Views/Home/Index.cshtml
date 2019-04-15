@@ -3,7 +3,39 @@
 }
 
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-    <p> Ouaich</p>
+    <h1 class="display-4">Bienvenue sur Attraction Tycoon.</h1>
+    <center>
+        <div class="w3-content" style="max-width:800px">
+            <img class="mySlides w3-animate-fading" src="~/image/attr1.jpg" style="width:100%">
+            <img class="mySlides w3-animate-fading" src="~/image/attr2.jpg" style="width:100%">
+            <img class="mySlides w3-animate-fading" src="~/image/attr3.jpg" style="width:100%">
+            <img class="mySlides w3-animate-fading" src="~/image/attr4.jpg" style="width:100%">
+        </div>
+    </center>
+    <hr>
+    <script>
+        var slideIndex = 0;
+        carousel();
+        function carousel() {
+            var i;
+            var x = document.getElementsByClassName("mySlides");
+            for (i = 0; i < x.length; i++) {
+                x[i].style.display = "none";
+            }
+            slideIndex++;
+            if (slideIndex > x.length) {
+                slideIndex = 1
+            }
+            x[slideIndex - 1].style.display = "block";
+            setTimeout(carousel, 9000);
+        }
+    </script>
+
+
+    <p>
+        Ce logiciel vous permet de gérer en toute facilité votre parc d'attraction et d'unifier au sein d'une
+        même application toutes les données de votre parc.
+    </p>
+    <p> Réalisé par Sandrine Yven et Alexandre Lebegue.</p>
+    <hr />
 </div>

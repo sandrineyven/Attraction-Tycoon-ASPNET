@@ -7,12 +7,42 @@
 
 <h1>Recherche avancée</h1>
 <form asp-controller="Searches" asp-action="Index" method="get">
-    <p>
-        Recherche: <input type="text" name="SearchString">
-        <input type="submit" value="Filter" />
-    </p>
+
+    <h6>N° Zone : </h6>
+
+    <div class="input-group flex-nowrap">
+
+        <select id="select" name="zone" class="form-control" aria-label="Toute les zones" aria-describedby="addon-wrapping" placeholder="N° zone">
+            <option value="">N° zone</option>
+            <option value="1">Zone N°1</option>
+            <option value="2">Zone N°2</option>
+            <option value="3">Zone N°3</option>
+            <option value="4">Zone N°4</option>
+            <option value="5">Zone N°5</option>
+        </select>
+    </div>
+
+    <h6>Catégorie : </h6>
+
+    <div class="input-group flex-nowrap">
+        <select id="select" name="cat" class="form-control" aria-label="Toutes catégories" aria-describedby="addon-wrapping" placeholder="Catégorie">
+            <option value="">Catégorie</option>
+            <option value="1">Shops</option>
+            <option value="2">Staff</option>
+            <option value="3">Carousels</option>
+        </select>
+    </div>
+
+    <h6>Recherche par nom: </h6>
+    <div class="input-group flex-nowrap">
+        <input type="text" name="SearchString">
+        <input type="submit" value="Rechercher" class="btn btn-success" />
+    </div>
 </form>
-    <h2>Carousels</h2>
+
+@if (Model.carousels.Count > 0)
+{
+    <h3>Carousels</h3>
     <table class="table">
         <thead>
             <tr>
@@ -43,8 +73,11 @@
             }
         </tbody>
     </table>
+}
 
-    <h2>Shops</h2>
+@if (Model.shops.Count > 0)
+{
+    <h3>Shops</h3>
     <table class="table">
         <thead>
             <tr>
@@ -75,8 +108,10 @@
             }
         </tbody>
     </table>
-
-    <h2>Staff</h2>
+}
+@if (Model.staffs.Count > 0)
+{
+    <h3>Staff</h3>
     <table class="table">
         <thead>
             <tr>
@@ -103,3 +138,4 @@
             }
         </tbody>
     </table>
+}

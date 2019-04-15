@@ -24,5 +24,8 @@ namespace Attraction_Tycoon_ASPNET.Models
         public int zone { get; set; }
 
         public List<Staff> staffs { get; set; }
-}
+
+        public String zoneName { get; set; }
+
+    }
 }

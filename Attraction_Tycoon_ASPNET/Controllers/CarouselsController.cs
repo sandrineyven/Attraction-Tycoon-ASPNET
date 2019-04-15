@@ -22,7 +22,24 @@ namespace Attraction_Tycoon_ASPNET.Controllers
         public async Task<IActionResult> Index(string searchString)
         {
             var carousels = from c in _context.Carousel
-                        select c;
+                            select c;
+
+            var zones = from z in _context.Zone
+                        select z;
+
+
+            foreach (var carousel in carousels)
+            {
+                foreach (var zone in zones)
+                {
+                    if (carousel.zone == zone.id)
+                    {
+                        carousel.zoneName = zone.name;
+                    }
+                }
+            }
+
+            _context.SaveChanges();
 
             if (!String.IsNullOrEmpty(searchString))
             {
